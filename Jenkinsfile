@@ -1,7 +1,14 @@
 pipeline{
-    agent any
+    agent {
+      docker { image 'node:alpine' }
+    }
 
     stages{
+        stage("Test"){
+            steps{
+              sh 'node --version'
+            }
+        }
         stage("A"){
             steps{
                 echo "========executing A again and again========"
